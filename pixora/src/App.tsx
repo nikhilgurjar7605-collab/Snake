@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { ArrowUpRight, Gamepad2, Trophy, UserRound, Search, Play, Zap, Crown, Sparkles, RotateCcw, X, Users, Plus, ShieldCheck, Wifi } from 'lucide-react';
 
 type Scores={played:number;wins:number;losses:number};
@@ -43,6 +43,6 @@ function App(){
  {editing&&<div className="modal-backdrop" onClick={()=>setEditing(false)}><div className="profile-modal" onClick={e=>e.stopPropagation()}><button className="close-btn" onClick={()=>setEditing(false)}><X size={18}/></button><div className="eyebrow">GUEST PROFILE</div><h2>Your identity.</h2><label htmlFor="player-name">DISPLAY NAME</label><input id="player-name" maxLength={20} value={draft} onChange={e=>setDraft(e.target.value)}/><button className="primary-btn" onClick={saveProfile}>SAVE PROFILE <ArrowUpRight size={16}/></button></div></div>}
  </div>
 }
-function Stat({icon,value,label}:{icon:React.ReactNode;value:string|number;label:string}){return <div><span className="stat-icon">{icon}</span><div><strong>{value}</strong><small>{label}</small></div></div>}
+function Stat({icon,value,label}:{icon:ReactNode;value:string|number;label:string}){return <div><span className="stat-icon">{icon}</span><div><strong>{value}</strong><small>{label}</small></div></div>}
 function GameCard({item,index,onPlay}:{item:typeof CATALOG[number];index:number;onPlay:()=>void}){return <article className={'game-card '+item.color}><div className="card-visual"><span className="card-number">0{index+1}</span><div className="game-glyph">{item.id==='tictactoe'?'✕ ◯':item.id==='memory'?'✦ ✧':'↗'}</div><span className="visual-label">{item.genre.toUpperCase()} / PIXORA ORIGINAL</span></div><div className="card-details"><div><h3>{item.name}</h3><p>{item.description}</p><small>{item.players}</small></div><button className="play-circle" onClick={onPlay} disabled={item.id==='coming'} aria-label={'Play '+item.name}><Play size={17} fill="currentColor"/></button></div></article>}
 export default App;
