@@ -1008,3 +1008,23 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opa
 @media(max-width:900px){.sidebar{width:210px}.main{margin-left:210px}.hero{padding:38px 34px}.hero-art{width:43%}.content{padding-left:4%;padding-right:4%}}
 @media(max-width:650px){.sidebar{height:72px;background:#0c0d18ed;backdrop-filter:blur(24px)}.nav-item{font-family:Manrope;font-size:8px;font-weight:700;letter-spacing:.1px}.main{margin-left:0}.topbar{height:66px;padding:0 17px}.content{padding:25px 16px 44px}.hero{min-height:435px;border-radius:20px;padding:29px 22px}.hero h1{font-size:47px;letter-spacing:-3px}.hero-copy p{font-size:12px;max-width:300px}.hero-art{height:190px;bottom:0;opacity:.8}.orb-core{width:112px;height:112px;font-size:59px;border-radius:30px}.orbit-one{width:225px;height:145px}.orbit-two{width:275px;height:175px}.section-head{margin-top:37px}.section-head h2{font-size:23px}.card-visual{height:165px}.card-details{padding:17px}.bottom-stats{gap:10px;margin-top:30px}.bottom-stats>div{gap:6px}.stat-icon{display:grid;width:30px;height:30px}.stat-icon+div strong{font-size:16px}.stat-icon+div small{font-size:7px;letter-spacing:.7px}.page-title h1{font-size:42px}.online-card{padding:22px}.game-panel{padding:18px}.leader-card{padding:21px}.tic-grid{grid-template-columns:repeat(3,minmax(0,75px))}.tic-cell{width:75px;height:75px}.memory-grid{grid-template-columns:repeat(4,minmax(0,58px))}.memory-card{height:58px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* PIXORA mini-game arcade */
+.arcade-panel{max-width:760px;margin:0 auto;text-align:center}
+.snake-board{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;max-width:460px;aspect-ratio:1;margin:18px auto;padding:9px;background:#090b15;border:1px solid #ffffff1c;border-radius:14px}
+.snake-cell{background:#ffffff08;border-radius:4px;display:grid;place-items:center;min-width:0}
+.snake-head{background:#d8c5ff;box-shadow:0 0 14px #b99cff;border-radius:6px}
+.snake-body{background:linear-gradient(145deg,#9b7aff,#5540b8);border-radius:5px}
+.snake-food{color:#67e8f9;text-shadow:0 0 15px #67e8f9;font-size:20px}
+.snake-controls,.tile-controls{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:15px}
+.snake-controls button,.tile-controls button{width:48px;height:42px;border:1px solid #ffffff24;border-radius:10px;background:#a78bfa20;color:#fff;font-size:18px}
+.tiles-board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;max-width:430px;margin:20px auto;padding:10px;border-radius:15px;background:#090b15;border:1px solid #ffffff20}
+.number-tile{aspect-ratio:1;display:grid;place-items:center;border-radius:9px;background:#423b62;color:#fff;font:700 clamp(18px,4vw,29px) 'Space Grotesk';border:0}
+.rps-choices{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:32px 0}
+.rps-choice{width:130px;min-height:130px;border:1px solid #ffffff20;border-radius:16px;background:#ffffff08;color:#fff;font:600 14px 'Manrope';transition:.2s}
+.rps-choice:hover{transform:translateY(-5px);border-color:#a78bfa88;background:#a78bfa18}
+.reaction-display{min-height:330px;display:grid;place-items:center;align-content:center;gap:20px;text-align:center}
+.reaction-button{width:min(280px,75vw);height:170px;border:1px solid #ffffff30;border-radius:22px;background:#27233d;color:#fff;font:800 25px 'Space Grotesk';letter-spacing:2px}
+.reaction-button.waiting{background:#9b263d}.reaction-button.go{background:#087d63;box-shadow:0 0 55px #36e6ad66}.reaction-button.done{background:#34304d}
+.arcade-panel .game-info{display:flex;justify-content:space-around;gap:12px}
+@media(max-width:650px){.snake-board{gap:2px;padding:5px}.rps-choice{width:28%;min-width:88px;min-height:105px}.reaction-display{min-height:270px}}
