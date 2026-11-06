@@ -1,0 +1,79 @@
+[
+  {
+    "name": "Sign in and save a persistent player profile",
+    "sanity": true,
+    "viewport": "desktop",
+    "covers": [
+      "account sign-in",
+      "session restoration",
+      "profile persistence",
+      "protected API access"
+    ],
+    "description": "Verifies a signed-in player can update their account profile and see it after a reload.",
+    "steps": [
+      "Sign in with a supported provider",
+      "Open player settings",
+      "Change the display name to Nova",
+      "Save the profile",
+      "Reload the page"
+    ],
+    "expected": "The signed-in session is restored and Nova remains the account display name."
+  },
+  {
+    "name": "Create a private room and join from a second player",
+    "viewport": "desktop",
+    "covers": [
+      "private room creation",
+      "six-character invite code",
+      "room membership validation",
+      "room join",
+      "waiting to playing state transition"
+    ],
+    "description": "Verifies a host can create a room and a second authenticated player can join with its code.",
+    "steps": [
+      "Actor A signs in and creates a private room",
+      "Copy the six-character room code",
+      "Actor B signs in in a second browser context",
+      "Actor B enters the code and joins"
+    ],
+    "expected": "Both players appear in the same room, the lobby changes to playing, and each player receives a distinct mark."
+  },
+  {
+    "name": "Synchronize and validate multiplayer moves",
+    "viewport": "desktop",
+    "covers": [
+      "WebSocket room subscription",
+      "initial room state load",
+      "entity.update handling",
+      "server-side turn validation",
+      "server-side board validation",
+      "completed match result"
+    ],
+    "description": "Verifies moves are validated by the server and delivered live to both room members.",
+    "steps": [
+      "Actor A and Actor B join the same room",
+      "Actor A makes a legal move",
+      "Observe the move on Actor B's board without refreshing",
+      "Actor B attempts a move on their turn",
+      "Complete the match"
+    ],
+    "expected": "Both boards show the same sequence in real time; out-of-turn and occupied-cell moves are rejected, and the completed result is shown to both players."
+  },
+  {
+    "name": "Show shared leaderboard rankings",
+    "viewport": "mobile",
+    "covers": [
+      "global leaderboard",
+      "match result statistics",
+      "cross-account ranking data",
+      "responsive multiplayer navigation"
+    ],
+    "description": "Verifies completed matches update server-side player records visible from the global leaderboard.",
+    "steps": [
+      "Complete a multiplayer match",
+      "Open Global Rankings",
+      "Inspect both players' match and win totals"
+    ],
+    "expected": "The leaderboard displays shared server-backed totals for both players, including the match result."
+  }
+]
